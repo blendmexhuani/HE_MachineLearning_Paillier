@@ -21,3 +21,9 @@ docker run -it seal-save python3 LogisticRegression_PySEAL/test_homenc.py
 # This command will run the Logistic Regression using HE and PySEAL
 docker run -it seal-save python3 LogisticRegression_PySEAL/binlogreg.py
 ```
+
+## VSCode
+In order to run the code using Visual Studio Code:
+-   Install **Remote - Containers** extension
+-   Use the DockerFile to create the container
+-   Run examples
