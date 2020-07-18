@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from LogisticRegression_PySEAL import homenc as he
+import HomomorphicEncryption as he
 
 PRECISION = 100
 ARRAY_SIZE = 10

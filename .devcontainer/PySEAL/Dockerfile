@@ -48,16 +48,8 @@ ENV PYTHONPATH $PYTHONPATH:/SEAL/SEALPython:/SEAL/bin
 # Add placeholder for notebooks directory to be mounted
 VOLUME /notebooks
 
-# Install numpy, sklearn, pandas
-RUN pip3 install numpy
-RUN pip3 install sklearn
-RUN pip3 install pandas
-
-# Copy LogisticRegression_PySEAL
-COPY /LogisticRegression_PySEAL /SEAL/LogisticRegression_PySEAL
-
 # Return to SEAL root directory
 WORKDIR /SEAL
 
 # Clean-up
-# RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

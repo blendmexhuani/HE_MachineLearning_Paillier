@@ -1,0 +1,11 @@
+//devcontainer.json
+{
+    "name": "PySEAL Dev",
+    "dockerFile": "Dockerfile",
+  
+    "settings": {
+      "terminal.integrated.shell.linux": null
+    },
+  
+    "extensions": ["ms-azuretools.vscode-docker", "ms-python.python"]
+}

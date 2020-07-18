@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import time
-from LogisticRegression_PySEAL import homenc as he
+import HomomorphicEncryption as he
 from sklearn import datasets
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
