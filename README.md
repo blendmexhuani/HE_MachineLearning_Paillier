@@ -6,7 +6,7 @@ developed by researchers in the Cryp
 In order to run the code using Visual Studio Code:
 -   Install **Remote - Containers** extension
 -   Open the folder when the code is mapped using **Remote - Containers**
--   Install all the necessary extensions in docker container
+-   Install all the necessary extensions in docker container *(Python is a must in order to run the scripts)*
 -   Run the code
 
 ## Results
