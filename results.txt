@@ -1,0 +1,121 @@
+| Encryption parameters:
+|-- poly_modulus: 1x^4096 + 1
+|-- coeff_modulus_size: 110 bits
+|-- plain_modulus: 256
+|-- noise_standard_deviation: 3.19
+##################################################
+###### Example: Binary Logistic Regression #######
+##################################################
+**************************************************
+***************** Dataset: Iris ******************
+**************************************************
+   sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)  target
+0                5.1               3.5                1.4               0.2     0.0
+1                4.9               3.0                1.4               0.2     0.0
+2                4.7               3.2                1.3               0.2     0.0
+3                4.6               3.1                1.5               0.2     0.0
+4                5.0               3.6                1.4               0.2     0.0
+/root/.vscode-server/extensions/ms-python.python-2020.7.94776/pythonFiles/lib/python/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_safe_repr.py:273: VisibleDeprecationWarning: sctypeNA and typeNA will be removed in v1.18 of numpy
+  item = obj[key]
+ Features: 2
+ Training set size: 120 (Positives: 41)
+ Test set size: 30 (Positives: 9)
+**************************************************
+********************* Plain **********************
+**************************************************
+Fitting plain model ...
+  Iterations: 1000
+  Learning rate: 0.5
+Epoche 1 ...
+  Weights: [-0.05911037  0.02879136  0.01975069]
+Epoche 101 ...
+  Weights: [-0.42843405 -2.04302525  1.18063149]
+Epoche 201 ...
+  Weights: [-0.26905986 -3.62623039  2.43152241]
+Epoche 301 ...
+  Weights: [-0.13894931 -5.01566481  3.53911834]
+Epoche 401 ...
+  Weights: [-0.03222227 -6.24082017  4.52367853]
+Epoche 501 ...
+  Weights: [ 0.05585766 -7.32735368  5.40298467]
+Epoche 601 ...
+  Weights: [ 0.12909289 -8.29714473  6.1923217 ]
+Epoche 701 ...
+  Weights: [ 0.19053377 -9.16865864  6.90468238]
+Epoche 801 ...
+  Weights: [ 0.24263066 -9.95741326  7.55105401]
+Epoche 901 ...
+  Weights: [  0.28735803 -10.6764482    8.14071645]
+Epoche 1000 ...
+  Weights: [  0.32594861 -11.33040934   8.67632992]
+Fit-Time: 00h:0m:0.2408693580s
+--------------------------------------------------
+---------------- Confusion Matrix ----------------
+--------------------------------------------------
+Prediction-Time: 00h:0m:0.0001099180s
+ True Negatives: 21
+ False Positives: 0
+ False Negatives: 0
+ True Positives: 9
+--------------------------------------------------
+------------------ Class Report ------------------
+--------------------------------------------------
+Prediction-Time: 00h:0m:0.0001292090s
+              precision    recall  f1-score   support
+
+   negatives       1.00      1.00      1.00        21
+   positives       1.00      1.00      1.00         9
+
+    accuracy                           1.00        30
+   macro avg       1.00      1.00      1.00        30
+weighted avg       1.00      1.00      1.00        30
+
+**************************************************
+******************* Encrypted ********************
+**************************************************
+Fitting encrypted model ...
+  Iterations: 1000
+  Learning rate: 0.5
+Epoche 1 ...
+  Weights: [-0.05593722  0.04065219  0.03385966]
+Epoche 101 ...
+  Weights: [-1.5826944  -0.729088    2.93862031]
+Epoche 201 ...
+  Weights: [-1.84398385 -1.85511412  4.67640264]
+Epoche 301 ...
+  Weights: [-2.11997542 -2.82901689  6.23504263]
+Epoche 401 ...
+  Weights: [-2.53327282 -3.56319539  7.75210716]
+Epoche 501 ...
+  Weights: [-3.24078415 -3.83626835  9.49363055]
+Epoche 601 ...
+  Weights: [-3.86262193 -4.07515697 11.08447706]
+Epoche 701 ...
+  Weights: [-4.49235804 -4.25771351 12.61484167]
+Epoche 801 ...
+  Weights: [-5.12685676 -4.37198325 14.08377669]
+Epoche 901 ...
+  Weights: [-5.64958344 -4.40556903 15.17304529]
+Epoche 1000 ...
+  Weights: [-5.98054183 -4.3657408  15.86131103]
+Fit-Time: 04h:57m:1.6969284240s
+--------------------------------------------------
+---------------- Confusion Matrix ----------------
+--------------------------------------------------
+Prediction-Time: 00h:0m:3.0175149790s
+ True Negatives: 20
+ False Positives: 1
+ False Negatives: 4
+ True Positives: 5
+--------------------------------------------------
+------------------ Class Report ------------------
+--------------------------------------------------
+Prediction-Time: 00h:0m:3.0249604970s
+              precision    recall  f1-score   support
+
+   negatives       0.83      0.95      0.89        21
+   positives       0.83      0.56      0.67         9
+
+    accuracy                           0.83        30
+   macro avg       0.83      0.75      0.78        30
+weighted avg       0.83      0.83      0.82        30
