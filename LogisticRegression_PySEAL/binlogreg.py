@@ -82,7 +82,7 @@ class BinLogReg:
 
             if self.encrypted:
                 # recrypt y_predictions, this simulates bootstrapping and should be replaced
-                y_predictions = he.decrypt_ndarray(y_predictions)
+                y_predictions = he.recrypt_ndarray(y_predictions)
 
             # calculate average loss gradient
             gradient = np.dot(X.T, y_predictions - y) * mean
