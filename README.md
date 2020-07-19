@@ -16,4 +16,5 @@ Encryption parameters:
 - plain_modulus: 256
 - noise_standard_deviation: 3.19
 
-Results using the above parameters can be found in the [results.txt](results.txt) file.
+Results using the above parameters and 1000 iterations and a learning rate of 0.5 can be found in the [results.txt](results.txt) file.
+Results using the above parameters and 10 iterations and a learning rate of 0.5 can be found in the [results_compare.txt](results_compare.txt) file. This file contains the comparison between the prediction of encrypted and unencrypted data after the model has been fitted.

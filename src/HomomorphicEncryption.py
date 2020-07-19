@@ -97,7 +97,8 @@ def initialize_fractional(
     evaluator = Evaluator(context)
     global decryptor
     decryptor = Decryptor(context, secret_key)
-
+    
+    # Since we are going to do some multiplications we will also relinearize.
     global evaluation_keys
     evaluation_keys = EvaluationKeys()
     keygen.generate_evaluation_keys(16, evaluation_keys)

@@ -223,6 +223,11 @@ def example_binlogreg_iris_bivariate():
 
     model.print_confusion_matrix(X_test_enc, y_test)
     model.print_class_report(X_test_enc, y_test)
+    
+    # Check if the model predicts the same for unencrypted data
+    print_example_banner("Plain")
+    model.print_confusion_matrix(X_test, y_test)
+    model.print_class_report(X_test, y_test)
 
 
 def example_binlogreg_iris_trivariate():
