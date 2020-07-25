@@ -1,20 +1,13 @@
-This repository is a proof of concept for adding a Python wrapper to the
-(Simple Encrypted Arithmetic Library (SEAL))[http://sealcrypto.org/], a homomorphic encryption library,
-developed by researchers in the Cryp
+For developing Naive Bayes algorithm using federated learning, [this paper](http://www.aun.edu.eg/journal_files/143_J_4816.pdf) is used.
 
-## Main - Run with VSCode
+## Run with VSCode
 In order to run the code using Visual Studio Code:
--   Install **Remote - Containers** extension
--   Open the folder when the code is mapped using **Remote - Containers**
--   Install all the necessary extensions in docker container *(Python is a must in order to run the scripts)*
+-   Open the folder when the code is mapped
+-   Install Python extension in order to run the script
 -   Run the code
 
-## Results
-Encryption parameters:
-- poly_modulus: 1x^4096 + 1
-- coeff_modulus_size: 110 bits
-- plain_modulus: 256
-- noise_standard_deviation: 3.19
+## Configurations:
+- n_parties: 2, 4 and 6
+- key_length: 1024
 
-Results using the above parameters and 1000 iterations and a learning rate of 0.5 can be found in the [results.txt](results.txt) file.
-Results using the above parameters and 10 iterations and a learning rate of 0.5 can be found in the [results_compare.txt](results_compare.txt) file. This file contains the comparison between the prediction of encrypted and unencrypted data after the model has been fitted.
+*Results in [results.txt](results.txt) file were obtained using local_learning and also federated_learning.*
