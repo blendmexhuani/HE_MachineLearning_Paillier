@@ -4,6 +4,7 @@ from math import pi
 import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
+from configparser import ConfigParser
 
 import phe as paillier
 
@@ -254,15 +255,22 @@ def local_learning(X, y, X_test, y_test, config):
 
 
 if __name__ == '__main__':
-    for i in range(2, 7, 2):
-        config = {
-            'n_parties': i,
-            'key_length': 1024,
-        }
-        print_example_banner(f"EXAMPLE USING {i} PARTIES AND 1024 KEY LENGTH")
-        # load data, train/test split and split training data between parties
-        X, y, X_test, y_test = get_data(n_parties=config['n_parties'])
-        # first each party learns a model on its respective dataset for comparison.
-        local_learning(X, y, X_test, y_test, config)
-        # and now the full glory of federated learning
-        federated_learning(X, y, X_test, y_test, config)
+    file = "config.ini"
+    configuration = ConfigParser()
+    configuration.read(file)
+    try:
+        for n_parties in configuration['HE_paramenters']['n_parties'].split(","):
+            for key_length in configuration['HE_paramenters']['key_length'].split(","):
+                config = {
+                    'n_parties': int(n_parties.strip()),
+                    'key_length': int(key_length.strip()),
+                }
+                print_example_banner(f"EXAMPLE USING {n_parties.strip()} PARTIES AND {key_length.strip()} KEY LENGTH")
+                # load data, train/test split and split training data between parties
+                X, y, X_test, y_test = get_data(n_parties=config['n_parties'])
+                # first each party learns a model on its respective dataset for comparison.
+                local_learning(X, y, X_test, y_test, config)
+                # and now the full glory of federated learning
+                federated_learning(X, y, X_test, y_test, config)
+    except ImportError:
+        print ("config.ini file does not have the correct format!\nPlease use ',' for multi-value separation.")
