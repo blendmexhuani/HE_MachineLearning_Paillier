@@ -10,3 +10,7 @@ The file `config.ini` can be used to change the parameters values.
 Results in [results.txt](results.txt) file were obtained using local_learning and also federated_learning with the following parameters:
 - n_parties: 2, 4, 6
 - key_length: 1024
+
+## Run code in Virtual Environment
+- Run `./build_virtualenv.sh` file in order to create the virtual environment. **Please note that if you have MacOS/Linux machine then you need to comment line 3 and uncomment line 4 in order to actiavte the virtual environment**
+- Run `./run_code.sh` file in order to run the code in the created virtual environment
