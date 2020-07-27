@@ -1,5 +1,8 @@
+############################################################
+####### EXAMPLE USING 2 PARTIES AND 1024 KEY LENGTH ########
+############################################################
 ************************************************************
-******* EXAMPLE USING 2 PARTIES AND 1024 KEY LENGTH ********
+*********************** IRIS DATASET ***********************
 ************************************************************
 Loading data...
 Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
@@ -8,7 +11,28 @@ Party 2:        Accuracy Score(%): 100.00       MSE: 0.00
 After running the protocol:
 Accuracy Score(%): 100.00       MSE: 0.00
 ************************************************************
-******* EXAMPLE USING 4 PARTIES AND 1024 KEY LENGTH ********
+*********************** WINE DATASET ***********************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 86.11        MSE: 0.14
+Party 2:        Accuracy Score(%): 91.67        MSE: 0.08
+After running the protocol:
+Accuracy Score(%): 86.11        MSE: 0.14
+************************************************************
+****************** BREAST CANCER DATASET *******************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 88.60        MSE: 0.11
+Party 2:        Accuracy Score(%): 89.47        MSE: 0.11
+After running the protocol:
+Accuracy Score(%): 88.60        MSE: 0.11
+############################################################
+####### EXAMPLE USING 4 PARTIES AND 1024 KEY LENGTH ########
+############################################################
+************************************************************
+*********************** IRIS DATASET ***********************
 ************************************************************
 Loading data...
 Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
@@ -19,7 +43,32 @@ Party 4:        Accuracy Score(%): 100.00       MSE: 0.00
 After running the protocol:
 Accuracy Score(%): 100.00       MSE: 0.00
 ************************************************************
-******* EXAMPLE USING 6 PARTIES AND 1024 KEY LENGTH ********
+*********************** WINE DATASET ***********************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 88.89        MSE: 0.11
+Party 2:        Accuracy Score(%): 80.56        MSE: 0.19
+Party 3:        Accuracy Score(%): 94.44        MSE: 0.06
+Party 4:        Accuracy Score(%): 88.89        MSE: 0.11
+After running the protocol:
+Accuracy Score(%): 94.44        MSE: 0.06
+************************************************************
+****************** BREAST CANCER DATASET *******************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 88.60        MSE: 0.11
+Party 2:        Accuracy Score(%): 88.60        MSE: 0.11
+Party 3:        Accuracy Score(%): 88.60        MSE: 0.11
+Party 4:        Accuracy Score(%): 90.35        MSE: 0.10
+After running the protocol:
+Accuracy Score(%): 88.60        MSE: 0.11
+############################################################
+####### EXAMPLE USING 6 PARTIES AND 1024 KEY LENGTH ########
+############################################################
+************************************************************
+*********************** IRIS DATASET ***********************
 ************************************************************
 Loading data...
 Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
@@ -31,3 +80,29 @@ Party 5:        Accuracy Score(%): 96.67        MSE: 0.03
 Party 6:        Accuracy Score(%): 100.00       MSE: 0.00
 After running the protocol:
 Accuracy Score(%): 100.00       MSE: 0.00
+************************************************************
+*********************** WINE DATASET ***********************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 91.67        MSE: 0.08
+Party 2:        Accuracy Score(%): 88.89        MSE: 0.11
+Party 3:        Accuracy Score(%): 75.00        MSE: 0.25
+Party 4:        Accuracy Score(%): 94.44        MSE: 0.06
+Party 5:        Accuracy Score(%): 83.33        MSE: 0.17
+Party 6:        Accuracy Score(%): 86.11        MSE: 0.14
+After running the protocol:
+Accuracy Score(%): 88.89        MSE: 0.11
+************************************************************
+****************** BREAST CANCER DATASET *******************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 88.60        MSE: 0.11
+Party 2:        Accuracy Score(%): 87.72        MSE: 0.12
+Party 3:        Accuracy Score(%): 89.47        MSE: 0.11
+Party 4:        Accuracy Score(%): 88.60        MSE: 0.11
+Party 5:        Accuracy Score(%): 91.23        MSE: 0.09
+Party 6:        Accuracy Score(%): 88.60        MSE: 0.11
+After running the protocol:
+Accuracy Score(%): 89.47        MSE: 0.11

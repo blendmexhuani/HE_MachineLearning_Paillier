@@ -2,7 +2,8 @@ from math import sqrt
 from math import exp
 from math import pi
 import numpy as np
-from sklearn.datasets import load_iris
+# import pandas as pd
+from sklearn.datasets import load_iris, load_wine, load_breast_cancer
 from sklearn.model_selection import train_test_split
 from configparser import ConfigParser
 
@@ -11,9 +12,9 @@ import phe as paillier
 seed = 1234
 np.random.seed(seed)
 
-##########################
-#### HELPER FUNCTIONS ####
-##########################
+###################################################
+################ HELPER FUNCTIONS #################
+###################################################
 
 def print_example_banner(title, ch='*', length=60):
     headerFooter = (ch * len(title)) + 2 * ch
@@ -22,15 +23,20 @@ def print_example_banner(title, ch='*', length=60):
     print(spaced_text.center(length, ch))
     print(headerFooter.center(length, ch))
 
-def get_data(n_parties):
+def get_data(n_parties, dataset='iris'):
     """
     Import the dataset via sklearn, shuffle and split train/test.
     Return training, target lists for `n_parties` and a holdout test set
     """
     print("Loading data...")
-    iris = load_iris()
-    X = iris.data
-    y = iris.target
+    if dataset == 'iris':
+        data = load_iris()
+    elif dataset == 'wine':
+        data = load_wine()
+    else:
+        data = load_breast_cancer()
+    X = data.data
+    y = data.target
     
     # shuffle and split the dataset into the training set and test set
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20,  random_state=seed)
@@ -125,15 +131,29 @@ def calculate_class_probabilities(summaries, row):
             probabilities[class_value] *= calculate_probability(row[i], mean, stdev)
     return probabilities
 
+def calculate_marginal_probability(probabilities):
+    """"Marginal probability is the sum of probabilities for all classes"""
+    return sum(probabilities.values())
+
+def calculate_posterior_probabilities(class_probabilities, marginal_probability):
+    """"Calculate posterior probability for each class"""
+    posterior_probabilities = dict()
+    for target, class_probability in class_probabilities.items():
+        posterior_probabilities[target] = class_probability / marginal_probability
+    return posterior_probabilities
+
 def predict_row(summaries, row):
     """Predict the class for a given row"""
-    probabilities = calculate_class_probabilities(summaries, row)
+    class_probabilities = calculate_class_probabilities(summaries, row)
+    marginal_probability = calculate_marginal_probability(class_probabilities)
+    posterior_probabilities = calculate_posterior_probabilities(class_probabilities, marginal_probability)
     best_label, best_prob = None, -1
-    for class_value, probability in probabilities.items():
+    for class_value, probability in posterior_probabilities.items():
         if best_label is None or probability > best_prob:
             best_prob = probability
             best_label = class_value
     return best_label, best_prob
+
 
 class Master:
     """Private key holder. Decrypts the class labels and probabilities"""
@@ -265,9 +285,24 @@ if __name__ == '__main__':
                     'n_parties': int(n_parties.strip()),
                     'key_length': int(key_length.strip()),
                 }
-                print_example_banner(f"EXAMPLE USING {n_parties.strip()} PARTIES AND {key_length.strip()} KEY LENGTH")
+                print_example_banner(f"EXAMPLE USING {n_parties.strip()} PARTIES AND {key_length.strip()} KEY LENGTH", ch='#')
+                print_example_banner(f"IRIS DATASET")
                 # load data, train/test split and split training data between parties
                 X, y, X_test, y_test = get_data(n_parties=config['n_parties'])
+                # first each party learns a model on its respective dataset for comparison.
+                local_learning(X, y, X_test, y_test, config)
+                # and now the full glory of federated learning
+                federated_learning(X, y, X_test, y_test, config)
+                print_example_banner(f"WINE DATASET")
+                # load data, train/test split and split training data between parties
+                X, y, X_test, y_test = get_data(n_parties=config['n_parties'], dataset='wine')
+                # first each party learns a model on its respective dataset for comparison.
+                local_learning(X, y, X_test, y_test, config)
+                # and now the full glory of federated learning
+                federated_learning(X, y, X_test, y_test, config)
+                print_example_banner(f"BREAST CANCER DATASET")
+                # load data, train/test split and split training data between parties
+                X, y, X_test, y_test = get_data(n_parties=config['n_parties'], dataset='breast')
                 # first each party learns a model on its respective dataset for comparison.
                 local_learning(X, y, X_test, y_test, config)
                 # and now the full glory of federated learning
