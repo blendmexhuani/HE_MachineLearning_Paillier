@@ -18,5 +18,5 @@ After setting that or you have MacOS/Linux installed then:
 
 ## Run code with Visual Studio Code
 -   Open the folder when the code is mapped
--   Install Python extension in order to run the script
+-   Install Python extension
 -   Run the code
