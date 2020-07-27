@@ -16,6 +16,7 @@ Before running of Windows machine, you first need to:
 - Type `regedit` in the Windows start menu to launch Registry Editor
 - Go to the `Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`
 - Edit the value of the `LongPathsEnabled` property and set it to **1**
+
 After setting that or you have MacOS/Linux installed then:
 - Run `./build_virtualenv.sh` file in order to create the virtual environment. **Please note that if you have MacOS/Linux machine then you need to comment line 3 and uncomment line 4 in order to actiavte the virtual environment**
 - Run `./run_code.sh` file in order to run the code in the created virtual environment
