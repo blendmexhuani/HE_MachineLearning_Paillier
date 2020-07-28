@@ -285,7 +285,7 @@ if __name__ == '__main__':
                     'n_parties': int(n_parties.strip()),
                     'key_length': int(key_length.strip()),
                 }
-                print_example_banner(f"EXAMPLE USING {n_parties.strip()} PARTIES AND {key_length.strip()} KEY LENGTH", ch='#')
+                print_example_banner(f"EXAMPLE USING {n_parties.strip()} {'PARTY' if int(n_parties.strip()) == 1 else 'PARTIES'} AND {key_length.strip()} KEY LENGTH", ch='#')
                 print_example_banner(f"IRIS DATASET")
                 # load data, train/test split and split training data between parties
                 X, y, X_test, y_test = get_data(n_parties=config['n_parties'])

@@ -1,4 +1,31 @@
 ############################################################
+######## EXAMPLE USING 1 PARTY AND 1024 KEY LENGTH #########
+############################################################
+************************************************************
+*********************** IRIS DATASET ***********************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 100.00       MSE: 0.00
+After running the protocol:
+Accuracy Score(%): 100.00       MSE: 0.00
+************************************************************
+*********************** WINE DATASET ***********************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 88.89        MSE: 0.11
+After running the protocol:
+Accuracy Score(%): 88.89        MSE: 0.11
+************************************************************
+****************** BREAST CANCER DATASET *******************
+************************************************************
+Loading data...
+Accuracy Score and error (MSE) that each party gets on test set by training on own local data:
+Party 1:        Accuracy Score(%): 88.60        MSE: 0.11
+After running the protocol:
+Accuracy Score(%): 88.60        MSE: 0.11
+############################################################
 ####### EXAMPLE USING 2 PARTIES AND 1024 KEY LENGTH ########
 ############################################################
 ************************************************************

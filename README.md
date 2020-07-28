@@ -3,7 +3,7 @@
 ## Configurations:
 The file `config.ini` can be used to change the parameters values.
 Results in [results.txt](results.txt) file were obtained using local_learning and also federated_learning with the following parameters:
-- n_parties: 2, 4, 6
+- n_parties: 1, 2, 4, 6
 - key_length: 1024
 
 ## Run code using Virtual Environment for Python
