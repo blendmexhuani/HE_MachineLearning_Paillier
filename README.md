@@ -13,8 +13,8 @@ If you have Windows installed, you first need to:
 - Edit the value of the `LongPathsEnabled` property and set it to **1**
 
 After setting that or you have MacOS/Linux installed then:
-- Run `./build_virtualenv.sh` file in order to create the virtual environment. **Please note that if you have MacOS/Linux then you need to comment line 3 and uncomment line 4 in order to actiavte the virtual environment**
-- Run `./run_code.sh` file in order to run the code in the created virtual environment
+- Run `./build_virtualenv.sh` file in order to create the virtual environment. **Please note that if you have MacOS/Linux then you need to comment line 3 and uncomment line 4 inside `build_virtualenv.sh` file in order to activate the virtual environment**
+- Run `./run_code.sh` file in order to run the code inside the created virtual environment
 
 ## Run code with Visual Studio Code
 -   Open the folder when the code is mapped
