@@ -23,3 +23,17 @@ After setting that or you have MacOS/Linux installed then:
 -   Open the folder when the code is mapped
 -   Install Python extension
 -   Run the code
+
+Citing
+======
+
+`python-paillier` is designed, developed and supported by `CSIRO's Data61 <https://www.data61.csiro.au/>`__:
+
+    @misc{PythonPaillier,
+      author = {CSIRO's Data61},
+      title = {Python Paillier Library},
+      year = {2013},
+      publisher = {GitHub},
+      journal = {GitHub Repository},
+      howpublished = {\url{https://github.com/data61/python-paillier}},
+    }
