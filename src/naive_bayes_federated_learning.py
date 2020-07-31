@@ -1,8 +1,8 @@
 from math import sqrt
 from math import exp
 from math import pi
+import time
 import numpy as np
-# import pandas as pd
 from sklearn.datasets import load_iris, load_wine, load_breast_cancer
 from sklearn.model_selection import train_test_split
 from configparser import ConfigParser
@@ -22,6 +22,12 @@ def print_example_banner(title, ch='*', length=60):
     print(headerFooter.center(length, ch))
     print(spaced_text.center(length, ch))
     print(headerFooter.center(length, ch))
+
+def format_seconds(seconds):
+    m, s = divmod(seconds, 60)
+    h, m = divmod(m, 60)
+    str_seconds = "{:.0f}m:{:.10f}s".format(m, s)
+    return str_seconds
 
 def get_data(n_parties, dataset='iris'):
     """
@@ -194,11 +200,13 @@ class Party:
 
     def encrypt_summaries(self, X):
         """Compute and encrypt class labels and probabilities"""
+        t = time.process_time()
         self.fit()
+        elapsed_time = time.process_time() - t
         class_labels, predictions = self.predict(X)
         encrypted_labels, encrypted_summaries = encrypt_vector(self.pubkey, class_labels, predictions)
         
-        return (encrypted_labels, encrypted_summaries)
+        return (encrypted_labels, encrypted_summaries, elapsed_time)
 
 
 def federated_learning(X, y, X_test, y_test, config):
@@ -221,8 +229,10 @@ def federated_learning(X, y, X_test, y_test, config):
 
     # Compute class label predictions and encrypt
     class_labels, predictions = [], []
+    total_fit_time = 0.0
     for p in parties:
-        encrypt_label, encrypt_prob = p.encrypt_summaries(X_test)
+        encrypt_label, encrypt_prob, fit_time = p.encrypt_summaries(X_test)
+        total_fit_time += fit_time
         # Send encrypted data to master to decrypt
         _labels, _pred = master.decrypt_aggregate(encrypt_label, encrypt_prob)
         # Append to class_labels and predictions
@@ -250,8 +260,8 @@ def federated_learning(X, y, X_test, y_test, config):
         y_pred.append(class_labels[res.index(max(res))][i])
 
     print('After running the protocol:')
-    print('Accuracy Score(%): {:.2f}\tMSE: {:.2f}'.format( \
-        accuracy_metric(y_pred, y_test), mean_square_error(y_pred, y_test)))
+    print('Fit-Time: {}\tAccuracy Score(%): {:.2f}\tMSE: {:.2f}'.format( \
+        format_seconds(total_fit_time), accuracy_metric(y_pred, y_test), mean_square_error(y_pred, y_test)))
 
 
 def local_learning(X, y, X_test, y_test, config):
