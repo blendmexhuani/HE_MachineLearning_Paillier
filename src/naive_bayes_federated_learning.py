@@ -307,5 +307,6 @@ if __name__ == '__main__':
                 local_learning(X, y, X_test, y_test, config)
                 # and now the full glory of federated learning
                 federated_learning(X, y, X_test, y_test, config)
-    except ImportError:
-        print ("config.ini file does not have the correct format!\nPlease use ',' for multi-value separation.")
+    except:
+        print ("\nThis error can happen if the n_parties is set to be greater than 7 or " + \
+            "config.ini file does not have the correct format!\nPlease use ',' for multi-value separation.")
