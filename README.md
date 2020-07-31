@@ -7,7 +7,7 @@ Results in [results.txt](results.txt) file were obtained using local_learning an
 - n_parties: 1, 2, 4, 6
 - key_length: 1024
 
-**Do not set the n_parties greater than 7 because of the size of the datasets.**
+**NOTE: Do not set the n_parties greater than 7 because of the size of the datasets.**
 
 ## Run code using Virtual Environment for Python
 If you have Windows installed, you first need to:
