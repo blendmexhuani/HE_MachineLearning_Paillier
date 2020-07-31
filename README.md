@@ -1,11 +1,12 @@
 **Python-Paillier** implementation of naive bayes algorithm using federated learning with Iris, Wine and Breast Cancer datasets from sklearn.
 [This paper](http://www.aun.edu.eg/journal_files/143_J_4816.pdf) is used for the development of the algorithm using federated learning.
 
-## Configurations:
+## Configurations
 The file `config.ini` can be used to change the parameters values.
 Results in [results.txt](results.txt) file were obtained using local_learning and also federated_learning with the following parameters:
 - n_parties: 1, 2, 4, 6
 - key_length: 1024
+
 **Do not set the n_parties greater than 7 because of the size of the datasets.**
 
 ## Run code using Virtual Environment for Python
