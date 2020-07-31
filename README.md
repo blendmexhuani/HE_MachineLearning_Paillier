@@ -25,7 +25,8 @@ After setting that or you have MacOS/Linux installed then:
 -   Run the code
 
 ## Citing
-`python-paillier` is designed, developed and supported by `CSIRO's Data61 <https://www.data61.csiro.au/>`__. 
+`python-paillier` is designed, developed and supported by `CSIRO's Data61 <https://www.data61.csiro.au/>`__. If
+you use any part of this library in your research, please cite it using the following BibTex entry::
 
     @misc{PythonPaillier,
       author = {CSIRO's Data61},
