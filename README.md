@@ -25,7 +25,7 @@ After setting that or you have MacOS/Linux installed then:
 -   Run the code
 
 ## Citing
-`python-paillier` is designed, developed and supported by `CSIRO's Data61 <https://www.data61.csiro.au/>`__.
+`python-paillier` is designed, developed and supported by `CSIRO's Data61 <https://www.data61.csiro.au/>`__. 
 
     @misc{PythonPaillier,
       author = {CSIRO's Data61},
